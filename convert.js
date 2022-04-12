@@ -1,4 +1,5 @@
 function decToBase(decNumber,base) {
+
     var answer = [];
     var keysForHex = ["A", "B", "C", "D", "E", "F"];
     var convert = () => {
@@ -16,30 +17,43 @@ function decToBase(decNumber,base) {
 
     
     return convert();
-    
+  
 }
 
 function baseToDec(baseOfNumber,number) {
 
-var numberArray = [];
+  var isNum = true;
+  for (var i = 0; i < number.length; i++) {
+    if (number[i] != '1' && number[i] != '2' && number[i] != '3' && number[i] != '4' && number[i] != '5' && number[i] != '6' && number[i] != '7' && number[i] != '8' && number[i] != '9' && number[i] != '0') {
+      isNum = false;
+    } else {
+      isNum = true;
+    }
+  }
 
-for (var i of number) {
-  numberArray.push(i);
-}
+  if (isNum == true) {
+    var numberArray = [];
 
-numberArray.reverse();
+    for (var i of number) {
+      numberArray.push(i);
+    }
 
-
-var convertedNum = [];
-for (var i = 0; i < numberArray.length; i++) {
-  convertedNum.push(numberArray[i] * (baseOfNumber ** i));
-}
+    numberArray.reverse();
 
 
+    var convertedNum = [];
+    for (var i = 0; i < numberArray.length; i++) {
+      convertedNum.push(numberArray[i] * (baseOfNumber ** i));
+  }
 
-return convertedNum.reduce(function myFunc(total, num) {
-  return total + num;
-});
+
+
+    return convertedNum.reduce(function myFunc(total, num) {
+      return total + num;
+    });
+    } else {
+      alert('enter a number dumbass');
+    }
 }
 
 
